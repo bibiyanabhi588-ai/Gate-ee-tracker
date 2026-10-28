@@ -1,0 +1,24 @@
+
+{
+  "name": "GATE EE 2027 Full Routine Tracker",
+  "short_name": "GATE Tracker",
+  "description": "Daily study targets, history, weekly report and streak tracker",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1120",
+  "theme_color": "#0b1120",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
