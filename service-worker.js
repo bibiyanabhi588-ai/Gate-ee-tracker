@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "gate-ee-tracker-v1";
+const CACHE_NAME = "gate-ee-tracker-v2";
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
