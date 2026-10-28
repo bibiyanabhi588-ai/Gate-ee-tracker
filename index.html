@@ -2,6 +2,8 @@
 <html lang="hi">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0b1120">
 <title>GATE EE 2027 — Full Daily Routine Tracker</title>
 <style>
 *{box-sizing:border-box}body{margin:0;padding:16px;background:#f3f6fb;color:#182238;font-family:Arial,sans-serif}.wrap{max-width:760px;margin:auto}.hero,.card{background:#fff;border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 4px 18px #16213e0d}.hero{background:linear-gradient(135deg,#102447,#164e83);color:white}.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#a9d8ff;font-weight:bold}h1{font-size:27px;margin:8px 0}h2{font-size:19px;margin:0 0 12px}p{line-height:1.5;color:#5e6b80}.hero p{color:#dbeafe}.pill{display:inline-block;background:#ffffff1c;border:1px solid #ffffff35;border-radius:30px;padding:7px 10px;margin:4px 5px 0 0;font-size:13px}.meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}input[type=date]{padding:9px;border:1px solid #cbd5e1;border-radius:9px;font-size:15px}.progress{height:10px;background:#e6ebf3;border-radius:20px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:#1d75d2;transition:width .2s}.section{font-weight:bold;font-size:12px;letter-spacing:1px;color:#64748b;margin:16px 0 4px;text-transform:uppercase}.task{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #edf0f5}.task:last-child{border-bottom:0}.task input{width:20px;height:20px;flex-shrink:0;margin:2px 0 0}.task b{display:block;margin-bottom:3px}.small{font-size:13px;color:#718096;line-height:1.4}.schedule{width:100%;border-collapse:collapse;font-size:14px}.schedule td{padding:10px 7px;border-bottom:1px solid #edf0f5;vertical-align:top}.schedule td:first-child{font-weight:bold;white-space:nowrap;width:120px;color:#24466f}.schedule tr:last-child td{border-bottom:0}textarea{width:100%;min-height:80px;padding:11px;border:1px solid #cbd5e1;border-radius:10px;font:15px Arial}button{border:0;border-radius:10px;padding:12px 14px;font-size:14px;font-weight:bold;background:#1d4ed8;color:#fff;margin:8px 6px 0 0}button.secondary{background:#e8edf6;color:#182238}.note{background:#fff7df;border-radius:10px;padding:12px;color:#765a12;font-size:13px;line-height:1.5}@media(max-width:480px){body{padding:10px}.hero,.card{padding:16px}h1{font-size:23px}.schedule{font-size:13px}.schedule td:first-child{width:94px;white-space:normal}}
@@ -164,4 +166,12 @@ checks.forEach(c=>c.addEventListener('change',update));date.addEventListener('ch
 })();
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .catch(error => console.error('Offline setup error:', error));
+  });
+}
+</script>
 </body></html>
