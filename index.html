@@ -98,7 +98,8 @@ body progress {
 </main>
 <script>
 const checks=[...document.querySelectorAll('.task input')],date=document.getElementById('date'),notes=document.getElementById('notes');
-date.value=new Date().toLocaleDateString('en-CA');
+const today = new Date();
+date.value = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 function key(){return 'gate-ee-full-routine-'+date.value}
 function update(){let n=checks.filter(c=>c.checked).length;document.getElementById('count').textContent=n+'/'+checks.length+' routine targets complete';document.getElementById('percent').textContent=Math.round(n/checks.length*100)+'%';document.getElementById('bar').style.width=(n/checks.length*100)+'%'}
 function save(){try{localStorage.setItem(key(),JSON.stringify({checks:checks.map(c=>c.checked),notes:notes.value}));alert('Progress saved for '+date.value+' on this browser.')}catch(e){alert('Browser storage unavailable. Please use Export progress.')}}
@@ -139,7 +140,7 @@ checks.forEach(c=>c.addEventListener('change',update));date.addEventListener('ch
       const els = fields();
       data.forEach(item => {
         const el = els[item.i];
-        if (!el || el.type !== item.type) return;
+        if (!el || el.type === "date" || el.type !== item.type) return;
         if (el.type === "checkbox" || el.type === "radio") {
           el.checked = item.checked;
           el.dispatchEvent(new Event("change", { bubbles: true }));
